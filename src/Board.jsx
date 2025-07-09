@@ -1,4 +1,4 @@
-import { useGame } from "./GameContext";
+import { useGame } from "./MoleContext";
 
 export default function Field() {
   const NUM_HOLES = 9;

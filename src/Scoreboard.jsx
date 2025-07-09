@@ -1,4 +1,4 @@
-import { useGame } from "./GameContext";
+import { useGame } from "./MoleContext";
 
 export default function Scoreboard() {
   const { score, resetGame } = useGame();
