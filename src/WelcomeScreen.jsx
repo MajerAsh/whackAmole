@@ -1,7 +1,7 @@
-import { useGame } from "./MoleContext";
+import { useGame } from "./MoleContext"; //{destructuring} useGame context hook. the value of useGame is a Key on the moleContext obj
 
 export default function WelcomeScreen() {
-  const { startGame, highScore } = useGame();
+  const { startGame, highScore } = useGame(); //calling hook, destructuring keys: startGame highScore
 
   return (
     <div className="welcome">

@@ -1,5 +1,5 @@
 import { GameProvider, useGame } from "./MoleContext";
-import Field from "./Board";
+import Field from "./Field";
 import WelcomeScreen from "./WelcomeScreen";
 import Scoreboard from "./Scoreboard";
 

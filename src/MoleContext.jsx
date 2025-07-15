@@ -1,8 +1,9 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react"; //destructuring {} those hooks
 
 const GameContext = createContext();
 const owSound = new Audio("/ow.mp3");
 
+/* Game logic*/
 export function GameProvider({ children }) {
   const NUM_HOLES = 9;
 
@@ -55,7 +56,7 @@ export function GameProvider({ children }) {
   };
 
   return (
-    <GameContext.Provider
+    <GameContext.Provider //defining context provider. What we want provider to know/ be able to pass on
       value={{
         score,
         highScore,
@@ -73,5 +74,6 @@ export function GameProvider({ children }) {
 }
 
 export function useGame() {
+  //defined useGame as GameContext to import to the rest
   return useContext(GameContext);
 }

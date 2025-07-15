@@ -1,7 +1,7 @@
 import { useGame } from "./MoleContext";
 
 export default function Scoreboard() {
-  const { score, resetGame } = useGame();
+  const { score, resetGame } = useGame(); //pulling info we need from useGame
 
   return (
     <div className="scoreboard">
