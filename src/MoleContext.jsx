@@ -2,7 +2,6 @@ import { createContext, useContext, useState } from "react"; //destructuring {} 
 
 const GameContext = createContext();
 const owSound = new Audio(`${import.meta.env.BASE_URL}ow.mp3`);
-owSound.play();
 
 /* Game logic*/
 export function GameProvider({ children }) {
