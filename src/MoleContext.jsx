@@ -1,7 +1,8 @@
 import { createContext, useContext, useState } from "react"; //destructuring {} those hooks
 
 const GameContext = createContext();
-const owSound = new Audio("/ow.mp3");
+const owSound = new Audio(`${import.meta.env.BASE_URL}ow.mp3`);
+owSound.play();
 
 /* Game logic*/
 export function GameProvider({ children }) {
@@ -74,6 +75,5 @@ export function GameProvider({ children }) {
 }
 
 export function useGame() {
-  //defined useGame as GameContext to import to the rest
   return useContext(GameContext);
 }
