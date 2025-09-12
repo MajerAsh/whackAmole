@@ -23,7 +23,7 @@ export default function App() {
 function Main() {
   const { isPlaying } = useGame();
   return (
-    <div>
+    <div className={isPlaying ? "game-playing" : ""}>
       <h1>Whack-A-Mole</h1>
       {isPlaying ? <GameView /> : <WelcomeScreen />}
     </div>

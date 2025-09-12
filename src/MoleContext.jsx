@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react"; //destructuring {} those hooks
+import { createContext, useContext, useState, useRef, useEffect } from "react"; //destructuring {} those hooks
 
 const GameContext = createContext();
 const owSound = new Audio(`${import.meta.env.BASE_URL}ow.mp3`);
@@ -12,6 +12,28 @@ export function GameProvider({ children }) {
   const [moleIndex, setMoleIndex] = useState();
   const [bangIndex, setBangIndex] = useState();
   const [highScore, setHighScore] = useState(0);
+  const [timer, setTimer] = useState(20); //
+
+  const intervalRef = useRef(); //
+
+  useEffect(() => {
+    if (isPlaying) {
+      setTimer(20); // reset timer on new game
+      intervalRef.current = setInterval(() => {
+        setTimer((prev) => {
+          if (prev <= 1) {
+            clearInterval(intervalRef.current);
+            setIsPlaying(false);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    } else {
+      clearInterval(intervalRef.current);
+    }
+    return () => clearInterval(intervalRef.current);
+  }, [isPlaying]);
 
   const startGame = () => {
     setScore(0);
@@ -21,6 +43,7 @@ export function GameProvider({ children }) {
   };
 
   const whackMole = (clickedIndex) => {
+    if (!isPlaying || timer === 0) return;
     setScore((prev) => {
       const newScore = prev + 1;
       if (newScore > highScore) {
@@ -29,7 +52,7 @@ export function GameProvider({ children }) {
       return newScore;
     });
 
-    //Mole pain:
+    //Mole whacked:
     setBangIndex(clickedIndex);
     owSound.currentTime = 0;
     owSound.play();
@@ -53,16 +76,19 @@ export function GameProvider({ children }) {
     setScore(0);
     setMoleIndex();
     setBangIndex();
+    setTimer(20);
+    clearInterval(intervalRef.current);
   };
 
   return (
-    <GameContext.Provider //defining context provider. What we want provider to know/ be able to pass on
+    <GameContext.Provider //What we want provider to know/ be able to pass on
       value={{
         score,
         highScore,
         isPlaying,
         moleIndex,
         bangIndex,
+        timer,
         startGame,
         whackMole,
         resetGame,
