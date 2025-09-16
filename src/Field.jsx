@@ -1,8 +1,19 @@
 import { useGame } from "./MoleContext";
+import { useEffect, useState } from "react";
 
 export default function Field() {
   const NUM_HOLES = 9;
-  const { moleIndex, bangIndex, whackMole, level } = useGame();
+  const { moleIndex, bangIndex, whackMole, level, gameState } = useGame();
+  const [wiggle, setWiggle] = useState(false);
+
+  // "level:{level} animation"
+  useEffect(() => {
+    if (gameState === "playing") {
+      setWiggle(true);
+      const timeout = setTimeout(() => setWiggle(false), 700);
+      return () => clearTimeout(timeout);
+    }
+  }, [level, gameState]);
 
   /* returns an array of booleans; false = hole, true = mole/hole */
   return (
@@ -22,7 +33,9 @@ export default function Field() {
           </li>
         ))}
       </ul>
-      <div className="level-display">Level: {level}</div>
+      <div className={`level-display${wiggle ? " wiggle" : ""}`}>
+        Level: {level}
+      </div>
     </>
   );
 }
