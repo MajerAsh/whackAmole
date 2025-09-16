@@ -1,0 +1,54 @@
+/* ===== game messages: level up/ game over.. ===== */
+.game-message {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  animation: pop 0.7s;
+  color: #eab308;
+  text-shadow: 2px 2px 8px #4b5563;
+}
+
+.game-message.levelup {
+  color: #22c55e; /* green */
+}
+
+.game-message.gameover {
+  color: #e60000; /* red */
+}
+
+.game-message.win {
+  color: #0ea5e9; /* blue */
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.5;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== try again on game over or you win screen ===== */
+.retry-btn {
+  margin-top: 1.5rem;
+  padding: 0.7rem 2rem;
+  font-size: 1.2rem;
+  background: #eab308;
+  color: #222;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s;
+}
+.retry-btn:hover {
+  background: #facc15;
+}
