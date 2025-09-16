@@ -25,7 +25,7 @@ function Main() {
   const { gameState, message } = useGame();
   return (
     <div className={gameState === "playing" ? "game-playing" : ""}>
-      <h1>Whack-A-Mole</h1>
+      <h1 className={gameState === "welcome" ? "rock" : ""}>Whack-A-Mole</h1>
       {gameState === "playing" && <GameView />}
       {(gameState === "message" || gameState === "gameOver") && (
         <MessageScreen message={message} />

@@ -31,9 +31,9 @@ export function GameProvider({ children }) {
 
   //mole switch speed per level
   const getMoleSpeed = (level) => {
-    if (level === 1) return 1400;
-    if (level === 2) return 1000;
-    return 700;
+    if (level === 1) return 1000;
+    if (level === 2) return 750;
+    return 600;
   };
 
   useEffect(() => {

@@ -1,9 +1,9 @@
 /* ===== level display ===== */
 .level-display {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
-  margin-top: 1.5rem;
-  color: #eab308;
+  margin-top: 0.5rem;
+  color: #ffe69b;
   text-shadow: 2px 2px 8px #4b5563;
   animation: none;
   display: inline-block;
@@ -36,18 +36,19 @@
 .game-message {
   font-size: 2rem;
   font-weight: bold;
-  margin-top: 1rem;
   animation: pop 0.7s;
   color: #eab308;
   text-shadow: 2px 2px 8px #4b5563;
 }
 
 .game-message.levelup {
-  color: #22c55e; /* green */
+  color: #22c55e !important; /* green */
+  font-weight: bold;
 }
 
 .game-message.gameover {
-  color: #e60000; /* red */
+  color: #e60000 !important; /* red */
+  font-weight: bold;
 }
 
 .game-message.win {
@@ -72,17 +73,24 @@
 /* ===== try again on game over or you win screen ===== */
 .retry-btn {
   margin-top: 1.5rem;
-  padding: 0.7rem 2rem;
-  font-size: 1.2rem;
-  background: #eab308;
-  color: #222;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
+  margin-right: 1rem;
+  padding: 0.4rem 1.5rem;
+  font-size: 1.4rem;
+  background: linear-gradient(90deg, #ffe066 0%, #eab308 100%);
+  color: #b80000;
+  border: 2px solid #eab308;
+  border-radius: 2em;
+  font-family: "Orbitron", "Impact", "Arial Black", sans-serif;
   font-weight: bold;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: background 0.2s;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 16px rgba(234, 179, 8, 0.18), 0 2px 8px rgba(0, 0, 0, 0.18),
+    0 8px 24px -4px #eab30866;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.12s, box-shadow 0.2s;
 }
 .retry-btn:hover {
-  background: #facc15;
+  background: #ffe066;
+  color: #e60000;
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 6px 24px rgba(234, 179, 8, 0.28);
 }

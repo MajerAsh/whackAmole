@@ -22,15 +22,47 @@ body {
   margin: 0 auto;
 }
 
+/*====title=====*/
+h1,
+h1.rock {
+  display: inline-block;
+}
+
 h1 {
   font-size: 4.5rem;
   color: #eab308; /* golden yellow */
   text-shadow: 2px 2px 4px #4b5563; /* soft dark shadow */
   font-family: "Comic Sans MS", "Chalkboard SE", "Marker Felt", cursive;
   letter-spacing: 2px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  text-shadow: #b80000 0 0 5px, #b80000 0 0 10px, #b80000 0 0 20px,
+    #e60000 0 0 30px, #e60000 0 0 40px, #e60000 0 0 50px, #e60000 0 0 60px;
   animation: bounce 1s infinite;
+}
+/*===title animation===*/
+@keyframes rock {
+  0% {
+    transform: rotate(-8deg);
+  }
+  20% {
+    transform: rotate(8deg);
+  }
+  40% {
+    transform: rotate(-6deg);
+  }
+  60% {
+    transform: rotate(6deg);
+  }
+  80% {
+    transform: rotate(-4deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+h1.rock {
+  animation: rock 1.2s infinite;
 }
 
 div.welcome {
@@ -38,9 +70,47 @@ div.welcome {
   font-size: larger;
 }
 
-.welcome p strong {
-  color: #c46b06;
+/* ==============instructiions================= */
+.instruction {
   font-size: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 5px #000; /* subtle dark shadow */
+  line-height: 1.5;
+  padding: 0 1rem;
+}
+.instruction strong {
+  color: #ff8736;
+  font-weight: bold;
+}
+.instruction span[role="img"] {
+  font-size: 1.5em;
+  margin-right: 0.5em;
+}
+
+.instructions-steps {
+  margin: 2rem auto 1rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 420px;
+}
+
+/*===high score display===*/
+.welcome p strong {
+  color: #df0707;
+  font-size: 2rem;
+  font-family: "Orbitron", "Impact", "Arial Black", sans-serif;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 8px #000, 0 0 8px #e60000;
+  /* background: linear-gradient(90deg, #fdd32a 0%, #9c7708 100%);*/
+  padding: 0.3em 1em;
+  border-radius: 0.5em;
+  display: inline-block;
+  margin-top: 1rem;
+  margin-bottom: 6rem;
 }
 
 .welcome,
@@ -53,22 +123,31 @@ div.welcome {
   position: relative;
 }
 
+/*===mole animation====*/
 .mole {
   background-image: url("/mole.png");
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
+/*===play btn====*/
+.welcome button {
+  margin-top: 1.5rem;
+  margin-right: 1rem;
+  padding: 0.4rem 1.5rem;
+  font-size: 2rem;
+  border: 5px solid #eab308;
+  border-radius: 1.5em;
+  background: linear-gradient(90deg, #fffbe6 0%, #ffe066 100%);
+  color: #b80000;
+  font-family: "Orbitron", "Impact", "Arial Black", sans-serif;
+  box-shadow: 0 4px 16px rgba(234, 179, 8, 0.18);
+  transition: transform 0.1s;
   font-weight: bold;
-  background: rgb(193, 214, 191);
-  border-color: rgb(14, 77, 14);
-  color: rgb(4, 34, 4);
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
 }
-
-button:hover {
-  cursor: pointer;
-  background-color: rgb(187, 176, 162);
+.welcome button:hover {
+  background: #ffe066;
+  transform: scale(1.08) rotate(-2deg);
 }
 
 .bang {

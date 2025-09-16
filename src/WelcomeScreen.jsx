@@ -5,22 +5,32 @@ export default function WelcomeScreen() {
 
   return (
     <div className="welcome">
-      <div className="instructions"> Click on the mole to gain points.</div>
-      <div className="instructions">
-        {" "}
-        You must hit the mole at least 4 times within 10 seconds to move on to
-        the next level.
-      </div>
-      <div className="instructions">
-        {" "}
-        Each level gets harder, with less time and faster moles. Reach level 3
-        to win!
-      </div>
-      <br />
       <button onClick={startGame}>Play</button>
       <p>
-        <strong>High Score: {highScore}</strong>
+        <strong>Current High Score: {highScore}</strong>
       </p>
+      <div className="instructions-list">
+        <div className="instruction">
+          <span role="img" aria-label="hammer">
+            🔨
+          </span>{" "}
+          Click the mole to gain points!
+        </div>
+        <div className="instruction">
+          <span role="img" aria-label="timer">
+            ⏱️
+          </span>{" "}
+          Hit the mole <strong>at least 4 times</strong> in{" "}
+          <strong>10 seconds</strong> to level up.
+        </div>
+        <div className="instruction">
+          <span role="img" aria-label="fire">
+            🔥
+          </span>{" "}
+          Each level gets harder—faster moles, less time. Reach level 3 to win!
+        </div>
+      </div>
+      <br />
     </div>
   );
 }
